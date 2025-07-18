@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Research and Development</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: #f0f4f8;
+        color: #1a2e44;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 9%;
+        background: rgba(255, 255, 255, 0.404);
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 3rem;
+        z-index: 1000;
+        transition: background 0.3s ease;
+      }
+
+      header.scrolled {
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .logo {
+        font-weight: 600;
+        font-size: 1.8rem;
+        color: #0b398b;
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        width: 45px;
+        height: auto;
+        margin-right: 12px;
+      }
+
+      nav a {
+        margin: 0 1.2rem;
+        text-decoration: none;
+        color: #0b398b;
+        font-weight: 500;
+        font-size: 1rem;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #ffcb47;
+        transition: width 0.3s ease;
+      }
+
+      nav a:hover::after,
+      nav a.active::after {
+        width: 100%;
+      }
+
+      nav a.active,
+      nav a:hover {
+        color: #ffcb47;
+      }
+
+      .rd-section {
+        max-width: 1200px;
+        margin: 60px auto;
+        padding: 0 20px;
+        text-align: center;
+      }
+
+      .rd-section h2 {
+        font-size: 2.5rem;
+        color: #1a2e44;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        position: relative;
+      }
+
+      .rd-section h2::after {
+        content: "";
+        width: 50px;
+        height: 4px;
+        background: #3498db;
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+        color: #34495e;
+        margin-bottom: 50px;
+        font-style: italic;
+      }
+
+      .rd-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 20px;
+      }
+
+      .rd-item {
+        background: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        padding: 20px;
+        min-height: 300px;
+        display: flex;
+        align-items: center;
+      }
+
+      .rd-item:hover {
+        transform: translateY(-10px);
+      }
+
+      .rd-item img {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .rd-item img:hover {
+        transform: scale(1.05);
+      }
+
+      .rd-text {
+        padding: 0 20px;
+        text-align: left;
+      }
+
+      .rd-text h3 {
+        font-size: 1.4rem;
+        color: #2c3e50;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .rd-text p {
+        font-size: 1rem;
+        color: #7f8c8d;
+        line-height: 1.5;
+      }
+
+      /* Media Queries for All Devices */
+
+      /* Extra Small Devices (max-width: 360px) */
+      @media (max-width: 360px) {
+        .rd-section {
+          padding: 0 5px;
+        }
+
+        .rd-section h2 {
+          font-size: 1.3rem;
+          letter-spacing: 1px;
+        }
+
+        .subtitle {
+          font-size: 0.85rem;
+        }
+
+        .rd-item {
+          padding: 10px;
+          flex-direction: column;
+        }
+
+        .rd-item img {
+          max-width: 100%;
+        }
+
+        .rd-text {
+          padding: 10px 0 0;
+          text-align: center;
+        }
+
+        .rd-text h3 {
+          font-size: 1rem;
+        }
+
+        .rd-text p {
+          font-size: 0.85rem;
+        }
+      }
+
+      /* Mobile Devices */
+      @media (max-width: 480px) {
+        .rd-section {
+          padding: 0 10px;
+        }
+
+        .rd-section h2 {
+          font-size: 1.6rem;
+        }
+
+        .subtitle {
+          font-size: 0.95rem;
+          margin-bottom: 30px;
+        }
+
+        .rd-item {
+          flex-direction: column;
+          padding: 10px;
+          min-height: auto;
+        }
+
+        .rd-text {
+          padding: 15px 0 0;
+          text-align: center;
+        }
+
+        .rd-text h3 {
+          font-size: 1.1rem;
+        }
+
+        .rd-text p {
+          font-size: 0.9rem;
+        }
+
+        .rd-item img {
+          max-width: 100%;
+          margin: 0 auto;
+        }
+      }
+
+      /* Tablets */
+      @media (max-width: 768px) {
+        .rd-section h2 {
+          font-size: 2rem;
+        }
+
+        .subtitle {
+          font-size: 1rem;
+        }
+
+        .rd-text h3 {
+          font-size: 1.2rem;
+        }
+
+        .rd-text p {
+          font-size: 0.95rem;
+        }
+
+        .rd-item {
+          flex-direction: column;
+          text-align: center;
+          min-height: auto;
+        }
+
+        .rd-text {
+          padding: 20px 0;
+          text-align: center;
+        }
+
+        .rd-item img {
+          max-width: 80%;
+          margin: 0 auto;
+        }
+      }
+
+      /* Small Desktops / Laptops */
+      @media (max-width: 1024px) {
+        .rd-item {
+          flex-direction: column;
+          text-align: center;
+          min-height: auto;
+        }
+
+        .rd-text {
+          padding: 20px 0 0;
+          text-align: center;
+        }
+
+        .rd-item img {
+          max-width: 80%;
+          margin: 0 auto;
+        }
+      }
+
+      /* Extra Large Screens (1600px and above) */
+      @media (min-width: 1600px) {
+        .rd-section {
+          max-width: 1400px;
+        }
+
+        .rd-item {
+          padding: 30px;
+        }
+
+        .rd-text h3 {
+          font-size: 1.6rem;
+        }
+
+        .rd-text p {
+          font-size: 1.1rem;
+        }
+
+        .rd-section h2 {
+          font-size: 3rem;
+        }
+
+        .subtitle {
+          font-size: 1.25rem;
+        }
+
+        .rd-text {
+          max-width: 600px;
+          margin: 0 auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="../Website/Assets/vasant-logo-removebg-preview.png"
+          alt="Vasant Logo"
+        />
+        Vasant Industries
+      </div>
+      <nav>
+      <a href="../index.html">Home</a>
+        <a href="../index.html#products">Products</a>
+        <a href="../index.html#R&D">R&D</a>
+        <a href="../index.html#features">Features</a>
+        <a href="../index.html#blogs">Blogs</a>
+        <a href="../index.html#contact">Contact</a >
+      </nav>
+    </header>
+    <section class="rd-section">
+      <h2>Research and Development</h2>
+      <p class="subtitle">
+        Learn about our research and development efforts across various product
+        categories.
+      </p>
+
+      <div class="rd-grid">
+        <!-- Concrete Admixture -->
+        <div class="rd-item">
+          <img
+            src="../Website/Assets/concrete-admixture-500x500.webp"
+            alt="Concrete Admixture"
+          />
+          <div class="rd-text">
+            <h3>Concrete Admixture</h3>
+            <p>
+              Our research focuses on developing innovative admixtures that
+              enhance the strength, durability, and workability of concrete. We
+              design solutions like accelerators, retarders, and water reducers
+              tailored for modern construction. Each formulation is tested under
+              strict lab and field conditions for performance and reliability.
+              We also prioritize eco-friendly admixtures to support sustainable
+              and green building practices.
+            </p>
+          </div>
+        </div>
+
+        <!-- Emulsion -->
+        <div class="rd-item">
+          <div class="rd-text">
+            <h3>Emulsion</h3>
+            <p>
+              Our R&D team continually innovates to develop custom emulsions
+              tailored to unique needs—whether for waterproof coatings, bonding
+              agents, or sealing compounds. We focus on creating
+              high-performance, polymer-based emulsions that offer excellent
+              adhesion, flexibility, and durability. Every formulation is tested
+              for environmental safety and long-lasting effectiveness.
+              Sustainable chemistry drives our mission to deliver reliable and
+              eco-friendly solutions.
+            </p>
+          </div>
+          <img src="../Website/Assets/emulsion.jpg" alt="Emulsion" />
+        </div>
+
+        <!-- Cleaning Solutions -->
+        <div class="rd-item">
+          <img
+            src="../Website/Assets/cleaning-sol-img.webp"
+            alt="Cleaning Solutions"
+          />
+          <div class="rd-text">
+            <h3>Cleaning Solutions</h3>
+            <p>
+              Our R&D is dedicated to formulating effective and environmentally
+              friendly cleaning solutions. We develop industrial-grade cleaners
+              that efficiently remove concrete residue, oil, grease, and stains
+              without damaging surfaces. Each product is tested for safety,
+              biodegradability, and performance. Our goal is to deliver powerful
+              cleaning with minimal environmental impact.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

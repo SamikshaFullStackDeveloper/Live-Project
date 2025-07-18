@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emulsion Solutions</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 9%;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 3rem;
+        z-index: 1000;
+        transition: background 0.3s ease;
+      }
+
+      .logo {
+        font-weight: 600;
+        font-size: 1.8rem;
+        color: #0b398b;
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        width: 45px;
+        margin-right: 12px;
+      }
+
+      nav a {
+        margin: 0 1rem;
+        text-decoration: none;
+        color: #0b398b;
+        font-weight: 500;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 0;
+        background-color: #ffcb47;
+        transition: width 0.3s ease;
+      }
+
+      nav a:hover::after,
+      nav a.active::after {
+        width: 100%;
+      }
+
+      nav a:hover,
+      nav a.active {
+        color: #ffcb47;
+      }
+
+      .header-banner {
+        background: linear-gradient(135deg, #2c3e50, #34495e);
+        color: white;
+        padding: 120px 20px 40px;
+        text-align: center;
+        position: relative;
+        margin-top: 50px;
+      }
+
+      .header-banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+        opacity: 0.3;
+        z-index: 0;
+      }
+
+      .header-banner h1,
+      .header-banner p {
+        position: relative;
+        z-index: 1;
+      }
+
+      .header-banner h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      .nav-tabs {
+        background: white;
+        padding: 0 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav-tabs ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .nav-tabs li {
+        margin: 0 5px;
+      }
+
+      .nav-tabs a {
+        display: block;
+        padding: 15px 25px;
+        text-decoration: none;
+        color: #666;
+        font-weight: 500;
+        border-bottom: 3px solid transparent;
+        transition: all 0.3s ease;
+      }
+
+      .nav-tabs a:hover,
+      .nav-tabs a.active {
+        color: #e67e22;
+        border-bottom-color: #e67e22;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      .section {
+        margin-bottom: 60px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .section:hover {
+        transform: translateY(-5px);
+      }
+      .section-header {
+        background: linear-gradient(135deg, #e67e22, #d35400);
+        color: white;
+        padding: 25px;
+        font-size: 1.8em;
+        font-weight: bold;
+      }
+
+      .section-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        padding: 30px;
+      }
+
+      .product-image {
+        width: 520px;
+        height: 240px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        font-size: 0.9em;
+        /* border: 2px dashed #ddd; */
+        overflow: hidden; /* Prevent overflow */
+      }
+
+      .product-image img {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+      }
+
+      .product-info h3 {
+        color: #2c3e50;
+        margin-bottom: 15px;
+        font-size: 1.3em;
+      }
+
+      .product-info p {
+        line-height: 1.6;
+        margin-bottom: 20px;
+        color: #555;
+      }
+
+      .product-variants {
+        margin-top: 20px;
+      }
+
+      .product-variants h4 {
+        color: #34495e;
+        margin-bottom: 10px;
+        font-size: 1.1em;
+      }
+
+      .variant-codes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .variant-code {
+        background: #3498db;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.85em;
+        font-weight: 500;
+      }
+
+      .applications {
+        background: #ecf0f1;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+      }
+
+      .applications h4 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+        font-size: 1.1em;
+      }
+
+      .applications ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .applications li {
+        padding: 5px 0;
+        color: #555;
+        position: relative;
+        padding-left: 20px;
+      }
+
+      .applications li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: #27ae60;
+        font-weight: bold;
+      }
+
+
+/* Media Queries for All Devices */
+/* 1. Phones (portrait) */
+@media screen and (max-width: 575px) {
+  body {
+    font-size: 14px;
+  }
+
+  header {
+    flex-direction: column;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .container {
+    padding: 30px 15px;
+  }
+
+  .section-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .product-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .product-info h3 {
+    font-size: 1.1em;
+  }
+
+  .variant-code {
+    font-size: 0.85em;
+    padding: 6px 10px;
+  }
+}
+
+/* 2. Phones (landscape), small tablets */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  body {
+    font-size: 15px;
+  }
+
+  .container {
+    padding: 35px 20px;
+  }
+
+  .section-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 220px;
+  }
+
+  .product-info h3 {
+    font-size: 1.2em;
+  }
+}
+
+/* 3. Tablets */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  body {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 40px 25px;
+  }
+
+  .section-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+/* 4. Laptops, small desktops */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  body {
+    font-size: 17px;
+  }
+
+  .container {
+    max-width: 960px;
+    padding: 50px 30px;
+  }
+
+  .section-content {
+    gap: 30px;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 260px;
+  }
+}
+
+/* 5. Large desktops */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+  body {
+    font-size: 17.5px;
+  }
+
+  .container {
+    max-width: 1200px;
+    padding: 50px 35px;
+  }
+
+  .section-content {
+    gap: 35px;
+  }
+
+  .product-image {
+    width: 550px;
+    height: 280px;
+  }
+}
+
+/* 6. Ultra-wide screens (iMacs, 4K) */
+@media screen and (min-width: 1600px) {
+  body {
+    font-size: 18px;
+  }
+
+  header {
+    padding: 1rem 5rem;
+  }
+
+  .container {
+    max-width: 1500px;
+    padding: 60px 40px;
+  }
+
+  .section-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .product-image {
+    width: 600px;
+    height: 300px;
+  }
+
+  .product-info h3 {
+    font-size: 1.5em;
+  }
+
+  .product-info p,
+  .applications li {
+    font-size: 1.1em;
+  }
+
+  .variant-code {
+    font-size: 1em;
+    padding: 8px 16px;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="../Website/Assets/vasant-logo-removebg-preview.png"
+          alt="Vasant Logo"
+        />
+        Vasant Industries
+      </div>
+      <nav>
+        <a href="../index.html">Home</a>
+        <a href="../index.html#products">Products</a>
+        <a href="../index.html#R&D">R&D</a>
+        <a href="../index.html#features">Features</a>
+        <a href="../index.html#blogs">Blogs</a>
+        <a href="../index.html#contact">Contact</a >
+      </nav>
+    </header>
+
+    <div class="header-banner">
+      <h1>Advanced Emulsion Technologies</h1>
+      <p>
+        Tailored silicone emulsions delivering exceptional stability,
+        spreadability, and surface protection across industries.
+      </p>
+    </div>
+
+    <nav class="nav-tabs">
+      <ul>
+        <li>
+          <a href="#Mold-Release-Emulsion" class="active"
+            >Mold Release Emulsion</a
+          >
+        </li>
+        <li>
+          <a href="#Fabric-Smoothing-Emulsion">Fabric Smoothing Emulsion</a>
+        </li>
+        <li><a href="#Defoaming-Emulsion">Defoaming Emulsion</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <section id="Mold-Release-Emulsion" class="section">
+        <div class="section-header">Mold Release Emulsion</div>
+        <div class="section-content">
+          <div class="product-image">
+            <span
+              ><img src="../Website/Assets/mold-release.webp" alt=""
+            /></span>
+          </div>
+          <div class="product-info">
+            <h3>Mold Release Emulsion</h3>
+            <p>
+              High-performance mold release emulsions designed for rubber,
+              plastic, and automotive applications with excellent release
+              properties.
+            </p>
+            <div class="product-variants">
+              <h4>Product Variants:</h4>
+              <div class="variant-codes">
+                <span class="variant-code">VM0020</span>
+                <span class="variant-code">VM0035 </span>
+                <span class="variant-code">VM0060</span>
+              </div>
+            </div>
+            <div class="applications">
+              <h4>Applications</h4>
+              <ul>
+                <li>Rubber molding applications</li>
+                <li>Plastic manufacturing</li>
+                <li>Car body production</li>
+                <li>Easy mold release</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="Fabric-Smoothing-Emulsion" class="section">
+        <div class="section-header">Fabric Smoothing Emulsion</div>
+        <div class="section-content">
+          <div class="product-image">
+            <span
+              ><img src="../Website/Assets/fabric-emulsion.avif" alt=""
+            /></span>
+          </div>
+          <div class="product-info">
+            <h3>Fabric Smoothing Emulsion</h3>
+            <p>
+              Specialized emulsions for fabric and textile treatments, providing
+              excellent smoothing and finishing properties for various textile
+              applications.
+            </p>
+            <div class="product-variants">
+              <h4>Product Variants:</h4>
+              <div class="variant-codes">
+                <span class="variant-code">VA0015</span>
+                <span class="variant-code"> VA0025</span>
+                <span class="variant-code">VA0035</span>
+              </div>
+            </div>
+            <div class="applications">
+              <h4>Applications</h4>
+              <ul>
+                <li>Fabric finishing applications</li>
+                <li>Textile manufacturing</li>
+                <li>Smooth surface finish</li>
+                <li>Enhanced fabric properties</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="Defoaming-Emulsion" class="section">
+        <div class="section-header">Defoaming Emulsion</div>
+        <div class="section-content">
+          <div class="product-image">
+            <span
+              ><img src="../Website/Assets/defoaming.webp" alt=""
+            /></span>
+          </div>
+          <div class="product-info">
+            <h3>Defoaming Emulsion</h3>
+            <p>
+              Effective defoaming emulsions for liquid formulations, providing
+              superior foam control and stability in various industrial
+              processes.
+            </p>
+            <div class="product-variants">
+              <h4>Product Variants:</h4>
+              <div class="variant-codes">
+                <span class="variant-code">DE0025</span>
+                <span class="variant-code">DE0035</span>
+                <span class="variant-code">DE0045</span>
+               
+              </div>
+            </div>
+            <div class="applications">
+              <h4>Applications</h4>
+              <ul>
+                <li>Liquid formulation control</li>
+                <li>Industrial processes</li>
+                <li>Foam reduction</li>
+                <li>Process optimization</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+   <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll(".nav-tabs a").forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          // Update active tab
+          document
+            .querySelectorAll(".nav-tabs a")
+            .forEach((a) => a.classList.remove("active"));
+          this.classList.add("active");
+
+          // Scroll to section
+          const targetId = this.getAttribute("href");
+          const targetSection = document.querySelector(targetId);
+          if (targetSection) {
+            targetSection.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Update active tab on scroll
+      window.addEventListener("scroll", function () {
+        const sections = document.querySelectorAll(".section");
+        const navLinks = document.querySelectorAll(".nav-tabs a");
+
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

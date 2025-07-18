@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Innovative Admixture Solutions</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 9%;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3rem;
+      z-index: 1000;
+      transition: background 0.3s ease;
+    }
+
+    .logo {
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: #0b398b;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 45px;
+      margin-right: 12px;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #0b398b;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #ffcb47;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #ffcb47;
+    }
+
+    .header-banner {
+      background: linear-gradient(135deg, #2c3e50, #34495e);
+      color: white;
+      padding: 120px 20px 40px;
+      text-align: center;
+      position: relative;
+      margin-top: 50px;
+    }
+
+    .header-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .header-banner h1,
+    .header-banner p {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-banner h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .nav-tabs {
+      background: white;
+      padding: 0 20px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-tabs ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-tabs li {
+      margin: 0 5px;
+    }
+
+    .nav-tabs a {
+      display: block;
+      padding: 15px 25px;
+      text-decoration: none;
+      color: #666;
+      font-weight: 500;
+      border-bottom: 3px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .nav-tabs a:hover,
+    .nav-tabs a.active {
+      color: #e67e22;
+      border-bottom-color: #e67e22;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .section {
+      margin-bottom: 60px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+    }
+
+    .section-header {
+      background: linear-gradient(135deg, #e67e22, #d35400);
+      color: white;
+      padding: 25px;
+      font-size: 1.8em;
+      font-weight: bold;
+    }
+
+    .section-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .product-image {
+      width: 520px;
+      height: 240px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 0.9em;
+      /* border: 2px dashed #ddd; */
+      overflow: hidden;
+      /* Prevent overflow */
+    }
+
+    .product-image img {
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .product-info h3 {
+      color: #2c3e50;
+      margin-bottom: 15px;
+      font-size: 1.3em;
+    }
+
+    .product-info p {
+      line-height: 1.6;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .usage-instructions,
+    .benefits,
+    .applications {
+      background: #ecf0f1;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .usage-instructions,
+    .benefits,
+    .applications h4 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+
+    .applications ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .applications li {
+      padding: 5px 0;
+      color: #555;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .applications li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #27ae60;
+      font-weight: bold;
+    }
+
+  
+/* Media Queries for All Devices */
+/* 1. Phones (portrait) */
+@media screen and (max-width: 575px) {
+  body {
+    font-size: 14px;
+  }
+
+  header {
+    flex-direction: column;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .container {
+    padding: 30px 15px;
+  }
+
+  .section-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .product-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .product-info h3 {
+    font-size: 1.1em;
+  }
+
+  .variant-code {
+    font-size: 0.85em;
+    padding: 6px 10px;
+  }
+}
+
+/* 2. Phones (landscape), small tablets */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  body {
+    font-size: 15px;
+  }
+
+  .container {
+    padding: 35px 20px;
+  }
+
+  .section-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 220px;
+  }
+
+  .product-info h3 {
+    font-size: 1.2em;
+  }
+}
+
+/* 3. Tablets */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  body {
+    font-size: 16px;
+  }
+
+  .container {
+    padding: 40px 25px;
+  }
+
+  .section-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+/* 4. Laptops, small desktops */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  body {
+    font-size: 17px;
+  }
+
+  .container {
+    max-width: 960px;
+    padding: 50px 30px;
+  }
+
+  .section-content {
+    gap: 30px;
+  }
+
+  .product-image {
+    width: 100%;
+    height: 260px;
+  }
+}
+
+/* 5. Large desktops */
+@media screen and (min-width: 1200px) and (max-width: 1599px) {
+  body {
+    font-size: 17.5px;
+  }
+
+  .container {
+    max-width: 1200px;
+    padding: 50px 35px;
+  }
+
+  .section-content {
+    gap: 35px;
+  }
+
+  .product-image {
+    width: 550px;
+    height: 280px;
+  }
+}
+
+/* 6. Ultra-wide screens (iMacs, 4K) */
+@media screen and (min-width: 1600px) {
+  body {
+    font-size: 18px;
+  }
+
+  header {
+    padding: 1rem 5rem;
+  }
+
+  .container {
+    max-width: 1500px;
+    padding: 60px 40px;
+  }
+
+  .section-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .product-image {
+    width: 600px;
+    height: 300px;
+  }
+
+  .product-info h3 {
+    font-size: 1.5em;
+  }
+
+  .product-info p,
+  .applications li {
+    font-size: 1.1em;
+  }
+
+  .variant-code {
+    font-size: 1em;
+    padding: 8px 16px;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="../Website/Assets/vasant-logo-removebg-preview.png" alt="Vasant Logo" />
+      Vasant Industries
+    </div>
+
+    <nav>
+       <a href="../index.html">Home</a>
+        <a href="../index.html#products">Products</a>
+        <a href="../index.html#R&D">R&D</a>
+        <a href="../index.html#features">Features</a>
+        <a href="../index.html#blogs">Blogs</a>
+        <a href="../index.html#contact">Contact</a >
+    </nav>
+
+  </header>
+
+  <div class="header-banner">
+    <h1>Industrial Cleaning Products</h1>
+    <p>
+      Effective solutions for removing stains, residues, and buildup —
+      ensuring surfaces stay clean and safe.
+    </p>
+  </div>
+
+  <nav class="nav-tabs">
+    <ul>
+      <li><a href="#Toilet-Cleaner" class="active">Toilet Cleaner</a></li>
+      <li><a href="#Bathroom-Cleaner">Bathroom Cleaner</a></li>
+      <li><a href="#Hygienic-Hard-Surface-Cleaner">Hygienic Hard Surface Cleaner</a></li>
+      <li><a href="#Floor-Cleaner">Floor Cleaner</a></li>
+      <li><a href="#Glass-Cleaner">Glass Cleaner</a></li>
+      <li><a href="#Room-Freshener">Room Freshener</a></li>
+      <li><a href="#Detergent-Liquid">Detergent Liquid</a></li>
+      <li><a href="#Fabric-Whitener">Fabric Whitener</a></li>
+      <li><a href="#Handwash-Gel">Handwash Gel</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <section id="Toilet-Cleaner" class="section">
+      <div class="section-header">Toilet Cleaner</div>
+      <div class="section-content">
+        <div class="product-image">
+          <span><img src="../Website/Assets/toilet-cleaner-img.webp" alt="" /></span>
+        </div>
+        <div class="product-info">
+          <h3>Toilet Cleaner</h3>
+          <p>
+            Fast-acting, perfumed toilet cleaner and descaler. Clings to
+            vertical surfaces, removes heavy soil and limescale.
+          </p>
+          <div class="benefits">
+            <h4>Benefits</h4>
+            <br />
+
+            <ul>
+              <li>Fast & thorough removal of limescale & stains</li>
+              <li>Extended contact time improves cleaning</li>
+              <li>Fresh fragrance</li>
+            </ul>
+          </div>
+        </div>
+        <div class="applications">
+          <h4>Applications</h4>
+          <ul>
+            <li>Cold weather applications</li>
+            <li>Fast track construction</li>
+            <li>Reduced construction time</li>
+            <li>Enhanced performance</li>
+          </ul>
+        </div>
+
+        <div class="usage-instructions">
+          <h4>Usage Instruction</h4>
+          <ul>
+            <li>Use undiluted directly from the bottle.</li>
+            <li>Squeeze under the rim and around the bowl.</li>
+            <li>Scrub with a toilet brush.</li>
+            <li>Let sit for 5 minutes.</li>
+            <li>Flush to rinse.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="Bathroom-Cleaner" class="section">
+      <div class="section-header">Bathroom Cleaner</div>
+      <div class="section-content">
+        <div class="product-image">
+          <span><img src="../Website/Assets/bathroom cleaner.webp" alt="" /></span>
+        </div>
+        <div class="product-info">
+          <h3>Bathroom Cleaner</h3>
+          <p>
+            Thick formula cleaner for floors, tiles, taps, sinks, ceramic and
+            steel surfaces.
+          </p>
+          <div class="benefits">
+            <h4>Benefits</h4>
+            <br />
+
+            <ul>
+              <li>Fresh fragrance</li>
+              <li>Better than bleach, acid & phenyl</li>
+              <li>Safe for all bathroom fittings</li>
+            </ul>
+          </div>
+        </div>
+        <div class="applications">
+          <h4>Applications</h4>
+          <ul>
+            <li>Regular Cleaning: 1.5 cap in 4L water</li>
+            <li>Tough Stains: Use undiluted</li>
+          </ul>
+        </div>
+
+        <div class="usage-instructions">
+          <h4>Usage Instruction</h4>
+          <br />
+          <ul>
+            <li>Regular Cleaning: Mix 1.5 caps in 4L water and clean.</li>
+            <li>Tough Stains: Apply undiluted directly.</li>
+            <li>
+              Disinfection: Dilute, apply on surface, wait 5 minutes, scrub
+              and rinse.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="Hygienic-Hard-Surface-Cleaner" class="section">
+      <div class="section-header">Hygienic Hard Surface Cleaner</div>
+      <div class="section-content">
+        <div class="product-image">
+          <span><img src="../Website/Assets/hygeinic-clean.webp" alt="" /></span>
+        </div>
+        <div class="product-info">
+          <h3>Hygienic Hard Surface Cleaner</h3>
+          <p>For hygienic cleaning of hard, water-resistant surfaces.</p>
+          <div class="benefits">
+            <h4>Benefits</h4>
+            <br />
+
+            <ul>
+              <li>Hygienically clean</li>
+              <li>Removes oil & residue</li>
+              <li>Doesn't damage surfaces</li>
+            </ul>
+          </div>
+        </div>
+        <div class="applications">
+          <h4>Applications</h4>
+          <ul>
+            <li>Small Area: Spray on damp cloth, clean, rinse</li>
+            <li>Large Surface: 1 pump per 5L water, mop, rinse, dry</li>
+          </ul>
+        </div>
+
+        <div class="usage-instructions">
+          <h4>Usage Instruction</h4>
+          <br />
+          <ul>
+            <li>Small Area: Spray on a damp cloth, clean, then rinse.</li>
+            <li>
+              Large Surface: Mix 1 pump in 5L water, mop surface, rinse, and
+              dry.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="Floor-Cleaner" class="section">
+      <div class="section-header">Floor Cleaner</div>
+      <div class="section-content">
+        <div class="product-image">
+          <span><img src="../Website/Assets/floor-cleaner.jpg" alt="" /></span>
+        </div>
+        <div class="product-info">
+          <h3>Floor Cleaner</h3>
+          <p>Heavy-duty, multi-surface cleaner for floors.</p>
+          <div class="benefits">
+            <h4>Benefits</h4>
+            <br />
+
+            <ul>
+              <li>Doesn't damage floors</li>
+              <li>Prevents scale buildup</li>
+              <li>Fast, hygienic results</li>
+            </ul>
+          </div>
+        </div>
+        <div class="applications">
+          <h4>Applications</h4>
+          <ul>
+            <li>Small Area: Use undiluted</li>
+            <li>Large Surface: Dilute 10% in water</li>
+          </ul>
+        </div>
+
+        <div class="usage-instructions">
+          <h4>Usage Instruction</h4>
+          <br />
+          <ul>
+            <li>Small Area: Use undiluted for spot cleaning.</li>
+            <li>
+              Large Surface: Dilute 10% in water, mop the surface, rinse and
+              buff dry.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="Glass-Cleaner" class="section">
+      <div class="section-header">Glass Cleaner</div>
+      <div class="section-content">
+        <div class="product-image">
+          <span><img src="../Website/Assets/clean-glass.webp" alt="" /></span>
+        </div>
+        <div class="product-info">
+          <h3>Glass Cleaner</h3>
+          <p>Quick-drying cleaner for glass and hard surfaces.</p>
+          <div class="benefits">
+            <h4>Benefits</h4>
+            <br />
+
+            <ul>
+              <li>Removes oily marks, fingerprints</li>
+              <li>For windows, mirrors, tiles</li>
+              <li>Leaves fresh scent</li>
+            </ul>
+          </div>
+        </div>
+        <div class="applications">
+          <h4>Applications</h4>
+          <ul>
+            <li>Use undiluted</li>
+            <li>Spray on cloth, wipe surface</li>
+            <li>Buff dry</li>
+          </ul>
+        </div>
+
+        <div class="usage-instructions">
+          <h4>Usage Instruction</h4>
+          <ul>
+            <li>Use undiluted.</li>
+            <li>Spray on a soft cloth.</li>
+            <li>Wipe the surface and buff dry.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="Room-Freshener" class="section">
+      <div class="section-header">Room Freshener</div>
+      <div class="section-content">
+        <div class="product-image">
+          <span><img src="../Website/Assets/room-freshener.webp" alt="" /></span>
+        </div>
+        <div class="product-info">
+          <h3>Room Freshener</h3>
+          <p>Freshens rooms with unique fragrance, no CFCs.</p>
+          <div class="benefits">
+            <h4>Benefits</h4>
+            <br />
+
+            <ul>
+              <li>Leaves room fresh & clean</li>
+              <li>Fragrance enhances experience</li>
+            </ul>
+          </div>
+        </div>
+        <div class="applications">
+          <h4>Applications</h4>
+          <ul>
+            <li>Use undiluted</li>
+            <li>Spray on cloth, wipe surface</li>
+            <li>Buff dry</li>
+          </ul>
+        </div>
+
+        <div class="usage-instructions">
+          <h4>Usage Instruction</h4>
+          <ul>
+            <li>Shake well before use.</li>
+            <li>Spray lightly in the air.</li>
+            <li>Avoid spraying directly on furniture or objects.</li>
+            <li>Test on small area first if needed.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="Detergent Liquid" class="section">
+      <div class="section-header">Detergent Liquid</div>
+      <div class="section-content">
+        <div class="product-image">
+          <span><img src="../Website/Assets/detergent-liquid.webp" alt="" /></span>
+        </div>
+        <div class="product-info">
+          <h3>Detergent Liquid</h3>
+          <p>Built-in detergent for household and industrial laundry.</p>
+          <div class="benefits">
+            <h4>Benefits</h4>
+            <br />
+
+            <ul>
+              <li>Reduces booster need</li>
+              <li>Economical and effective</li>
+              <li>Suitable for all soil levels</li>
+            </ul>
+          </div>
+        </div>
+        <div class="applications">
+          <h4>Applications</h4>
+          <ul>
+            <li>6-20 gm per kg of laundry depending on soil level</li>
+          </ul>
+        </div>
+
+        <div class="usage-instructions">
+          <h4>Usage Instruction</h4>
+          <ul>
+            <li>Use 6-20 gm per kg of laundry depending on soil leve</li>
+            <li>
+              Add during the wash cycle in washing machine or manual soak.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="Fabric-Whitener" class="section">
+      <div class="section-header">Fabric Whitener</div>
+      <div class="section-content">
+        <div class="product-image">
+          <span><img src="../Website/Assets/fabric.webp" alt="" /></span>
+        </div>
+        <div class="product-info">
+          <h3>Fabric Whitener</h3>
+          <p>Removes stains from white linen.</p>
+          <div class="benefits">
+            <h4>Benefits</h4>
+            <br />
+
+            <ul>
+              <li>Long shelf life</li>
+              <li>Works in all water types</li>
+            </ul>
+          </div>
+        </div>
+        <div class="applications">
+          <h4>Applications</h4>
+          <ul>
+            <li>3-15 ml per kg of wash load (light to heavy stains)</li>
+            <li>Up to 60°C</li>
+          </ul>
+        </div>
+
+        <div class="usage-instructions">
+          <h4>Usage Instruction</h4>
+          <ul>
+            <li>Add 3-15 ml per kg of wash load based on stain severity.</li>
+            <li>Use in warm water up to 60°C.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="Handwash-Gel" class="section">
+      <div class="section-header">Handwash Gel</div>
+      <div class="section-content">
+        <div class="product-image">
+          <span><img src="../Website/Assets/Hand-Wash-Gel.jpg" alt="" /></span>
+        </div>
+        <div class="product-info">
+          <h3>Handwash Gel</h3>
+          <p>Mild and fragrant gel handwash with moisturizers.</p>
+          <div class="benefits">
+            <h4>Benefits</h4>
+            <br />
+
+            <ul>
+              <li>Removes dirt, grease & bacteria</li>
+              <li>Moisturizes skin</li>
+            </ul>
+          </div>
+        </div>
+        <div class="applications">
+          <h4>Applications</h4>
+          <ul>
+            <li>Use undiluted</li>
+            <li>Rub a few drops with water</li>
+            <li>Rinse thoroughly</li>
+          </ul>
+        </div>
+
+        <div class="usage-instructions">
+          <h4>Usage Instruction</h4>
+          <ul>
+            <li>Use undiluted.</li>
+            <li>Take a few drops on wet hands.</li>
+            <li>Rub well and rinse thoroughly with water.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll(".nav-tabs a").forEach((link) => {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        // Update active tab
+        document
+          .querySelectorAll(".nav-tabs a")
+          .forEach((a) => a.classList.remove("active"));
+        this.classList.add("active");
+
+        // Scroll to section
+        const targetId = this.getAttribute("href");
+        const targetSection = document.querySelector(targetId);
+        if (targetSection) {
+          targetSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      });
+    });
+
+    // Update active tab on scroll
+    window.addEventListener("scroll", function () {
+      const sections = document.querySelectorAll(".section");
+      const navLinks = document.querySelectorAll(".nav-tabs a");
+
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - 200) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
