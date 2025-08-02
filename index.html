@@ -10,127 +10,137 @@
   <!-- Google Font Link -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@300;600&display=swap"
     rel="stylesheet" />
-    <!-- External CSS Link -->
+  <!-- External CSS Link -->
   <link rel="stylesheet" href="./Website/index.css" />
+
 
 </head>
 
 <body>
   <header>
-    <div class="logo">
+    <div class="logo" id="logoText">
       <img src="./Website/Assets/vasant-logo-removebg-preview.png" alt="Vasant Logo" />
-      Vasant Industries
+      <span id="logoName">Vasant Industries</span>
     </div>
+
     <nav>
-      <a href="#home">Home</a>
-      <a href="#products">Products</a>
-      <a href="#R&D">R&D</a>
-      <a href="#features">Features</a>
-      <a href="#blogs">Blogs</a>
-      <a href="#contact">Contact</a>
-     
+      <a href="./index.html#navHome" id="nav_Home">Home</a>
+      <a href="./index.html#navProducts" id="nav_Products">Products</a>
+      <a href="./index.html#navRnD" id="nav_RnD">R&D</a>
+      <a href="./index.html#navFeatures" id="nav_Features">Features</a>
+      <a href="./index.html#navBlogs" id="nav_Blogs">Blogs</a>
+      <a href="./index.html#navContact" id="nav_Contact">Contact</a>
     </nav>
+
+    <select name="language" id="select-lang" onchange="translateLanguage()">
+      <option value="english">English</option>
+      <option value="hindi">हिंदी</option>
+      <option value="marathi">मराठी</option>
+    </select>
+
+    <!-- Menu Button -->
+    <div class="menu-btn" id="menuBtn">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+
   </header>
 
-  <section class="carousel" id="home">
-    <div class="carousel-slide active" style="
-          background: url('./Website/Assets/Admixture.png') no-repeat center
-            center/cover;
-        ">.
-      <div class="carousel-content">
 
-        <h1>High Performance<br />Concrete Admixtures</h1>
-        <p>
+  <section class="carousel" id="navHome">
+    <div class="carousel-slide active" style="
+        background: url('./Website/Assets/Admixture.png') no-repeat center
+          center/cover;
+      ">
+      <div class="carousel-content">
+        <h1 id="slide1Title">High Performance</h1>
+        <h1 id="slide1Title2">Concrete Admixture</h1>
+        <p id="slide1Desc">
           Complete chemical solutions for modern construction. From concrete
           strength to surface finish and equipment care.
         </p>
         <div class="buttons">
-          <a href="./index.html#products"><button class="btn btn-primary">Explore Products</button></a>
-          <a href="./index.html#contact"><button class="btn btn-secondary">Get Quote</button></a>
+          <a href="./index.html#navProducts"><button class="btn btn-primary" id="slide1Btn1">Explore
+              Products</button></a>
+          <a href="./index.html#navContact"><button class="btn btn-secondary" id="slide1Btn2">Get Quote</button></a>
         </div>
       </div>
     </div>
 
     <div class="carousel-slide active" style="
-          background: url('./Website/Assets/emulsion.png') no-repeat center
-            center/cover;
-        ">
+        background: url('./Website/Assets/emulsion.png') no-repeat center
+          center/cover;
+      ">
       <div class="carousel-content">
-        <h1>Advanced Bonding &<br />Waterproofing Emulsions</h1>
-        <p>
+        <h1 id="slide2Title">Advanced Bonding &</h1>
+        <h1 id="slide2Title2">Waterproofing Emulsions</h1>
+
+        <p id="slide2Desc">
           Reliable polymer-based solutions for strong adhesion, crack
           resistance, and durable construction protection.
         </p>
         <div class="buttons">
-          <button class="btn btn-primary">Explore Products</button>
-          <button class="btn btn-secondary">Get Quote</button>
+          <button class="btn btn-primary" id="slide2Btn1">Explore Products</button>
+          <button class="btn btn-secondary" id="slide2Btn2">Get Quote</button>
         </div>
       </div>
     </div>
   </section>
+
   <div class="carousel-slide active" style="
-        background: url('./Website/Assets/cleaning-solution-corousel.webp')
-          no-repeat center center/cover;
-      ">
+      background: url('./Website/Assets/cleaning-solution-corousel.webp')
+        no-repeat center center/cover;
+    ">
     <div class="carousel-content">
-      <h1>Powerful & Safe Concrete<br />Cleaning Solutions</h1>
-      <p>
+      <h1 id="slide3Title">Powerful & Safe Concrete</h1>
+      <h1 id="slide3Title2">Cleaning Solutions</h1>
+
+      <p id="slide3Desc">
         Remove stains, dust, oil, and residues efficiently—engineered for
         surface care and maintenance with ease.
       </p>
       <div class="buttons">
-        <button class="btn btn-primary">Explore Products</button>
-        <button class="btn btn-secondary">Get Quote</button>
+        <button class="btn btn-primary" id="slide3Btn1">Explore Products</button>
+        <button class="btn btn-secondary" id="slide3Btn2">Get Quote</button>
       </div>
     </div>
   </div>
+
   <br /><br />
 
+
   <!-- Product Section -->
-  <section class="product-section" id="products">
-    <br />
-    <br />
-    <br />
-    <br />
-    <h2>Our Product Range</h2>
-    <p>
-      Explore our specialized solutions crafted for different construction
-      needs.
+  <section class="product-section" id="navProducts">
+    <br /><br /><br /><br />
+    <h2 id="products_title">Our Product Range</h2>
+    <p id="products_desc">
+      Explore our specialized solutions crafted for different construction needs.
     </p>
     <br /><br />
 
     <div class="product-cards">
       <!-- Card 1: Admixture -->
-
       <div class="card">
-
         <img src="./Website/Assets/admicture-img.jpg" alt="Admixture" />
         <div class="card-content">
-          <h3>Admixture</h3>
-          <p>
-            High-performance additives for enhancing concrete strength and
-            workability.
+          <h3 id="admixture_title">Admixture</h3>
+          <p id="admixture_desc">
+            High-performance additives for enhancing concrete strength and workability.
           </p>
-
-          <a href="./Website/Admixture-Product.html" class="view-products-btn">View Products</a>
-
-
+          <a href="./Website/Admixture-Product.html" class="view-products-btn" id="admixture_btn">View Products</a>
         </div>
-
       </div>
-
 
       <!-- Card 2: Emulsion -->
       <div class="card">
         <img src="./Website/Assets/Emulsion-img.jpeg" alt="Emulsion" />
         <div class="card-content">
-          <h3>Emulsion</h3>
-          <p>
-            Silicone emulsions for release, finishing, and deodorizing in
-            construction and textile use.
+          <h3 id="emulsion_title">Emulsion</h3>
+          <p id="emulsion_desc">
+            Silicone emulsions for release, finishing, and deodorizing in construction and textile use.
           </p>
-          <a href="./Website/Emulsion-Product.html" class="view-products-btn">View Products</a>
-
+          <a href="./Website/Emulsion-Product.html" class="view-products-btn" id="emulsion_btn">View Products</a>
         </div>
       </div>
 
@@ -138,63 +148,60 @@
       <div class="card">
         <img src="./Website/Assets/cleaning-sol-img.jpeg" alt="Cleaning Solution" />
         <div class="card-content">
-          <h3>Cleaning Solution</h3>
-          <p>
-            Efficient cleaning agents for construction tools, machinery, and
-            surfaces.
+          <h3 id="cleaning_title">Cleaning Solution</h3>
+          <p id="cleaning_desc">
+            Efficient cleaning agents for construction tools, machinery, and surfaces.
           </p>
-          <a href="./Website/Cleaning-sol-product.html" class="view-products-btn">View Products</a>
-
+          <a href="./Website/Cleaning-sol-product.html" class="view-products-btn" id="cleaning_btn">View Products</a>
         </div>
       </div>
     </div>
   </section>
-  <br /><br /><br /><br />
+
+  <br /><br /><br /><br /><br /> <br /> <br />
 
   <!-- Research and Development Section -->
 
-  <section class="rd-section" id="R&D">
+  <section class="rd-section" id="navRnD">
     <div class="overlay">
-      <h1>Research and Development</h1>
-      <h2>Innovation Through Science</h2>
+      <h1 id="rd_title">Research and Development</h1>
+      <h2 id="rd_subtitle">Innovation Through Science</h2>
       <br /><br />
       <div class="rd-box">
-        <p>
+        <p id="rd_description">
           Our R&D delivers high-quality admixtures, emulsions, and cleaning<br />
-          solutions. Designed for strength, durability, and
-          eco-safety—trusted<br />
+          solutions. Designed for strength, durability, and eco-safety—trusted<br />
           for reliable performance.
         </p>
       </div>
       <br /><br />
-      <a href="./Website/R&D-section.html" class="learn-more-btn">Learn More</a>
-
+      <a href="./Website/R&D-section.html" class="learn-more-btn" id="rd_learnmore">Learn More</a>
     </div>
   </section>
 
   <!-- Feature Section -->
 
-  <section class="features-section" id="features">
-    <h2>Why Choose Vasant Industries</h2>
-    <p class="subtitle">
+  <section class="features-section" id="navFeatures">
+    <h2 id="features_main_title">Why Choose Vasant Industries</h2>
+    <p class="subtitle" id="features_subtitle">
       Your trusted partner in concrete construction excellence
     </p>
-    <div class="features-title">Features</div>
+    <div class="features-title" id="features_title">Features</div>
+
     <div class="features-grid">
       <div class="feature-box">
         <img src="./Website/Assets/r&t-img.webp" alt="Research & Testing" />
-        <h3>Research & Testing</h3>
-        <p>
+        <h3 id="feature1title">Research & Testing</h3>
+        <p id="feature1Desc">
           We conduct in-depth research to innovate and improve formulations.
-          Rigorous testing ensures safety, quality, and consistent
-          performance.
+          Rigorous testing ensures safety, quality, and consistent performance.
         </p>
       </div>
 
       <div class="feature-box">
         <img src="./Website/Assets/expert-img.jpeg" alt="Expert Support" />
-        <h3>Expert Support</h3>
-        <p>
+        <h3 id="feature2title">Expert Support</h3>
+        <p id="feature2Desc">
           Our expert team delivers technical guidance and reliable support for
           every specific project need.
         </p>
@@ -202,8 +209,8 @@
 
       <div class="feature-box">
         <img src="./Website/Assets/quality-assurance.jpg" alt="Quality Assurance" />
-        <h3>Quality Assurance</h3>
-        <p>
+        <h3 id="feature3title">Quality Assurance</h3>
+        <p id="feature3Desc">
           We follow strict quality standards at every stage to ensure
           consistent and reliable results.
         </p>
@@ -211,8 +218,8 @@
 
       <div class="feature-box">
         <img src="./Website/Assets/reliable-del-img.png" alt="Reliable Delivery" />
-        <h3>Reliable Delivery</h3>
-        <p>
+        <h3 id="feature4title">Reliable Delivery</h3>
+        <p id="feature4Desc">
           We ensure timely and secure logistics through streamlined processes
           and trusted logistics.
         </p>
@@ -220,8 +227,8 @@
 
       <div class="feature-box">
         <img src="./Website/Assets/customize-sol-img.png" alt="Custom Solutions" />
-        <h3>Custom Solutions</h3>
-        <p>
+        <h3 id="feature5title">Custom Solutions</h3>
+        <p id="feature5Desc">
           We design tailored solutions to meet unique project needs with
           precision and flexibility.
         </p>
@@ -229,8 +236,8 @@
 
       <div class="feature-box">
         <img src="./Website/Assets/24:7 support-img.webp" alt="24/7 Support" />
-        <h3>24/7 Support</h3>
-        <p>
+        <h3 id="feature6title">24/7 Support</h3>
+        <p id="feature6Desc">
           Round-the-clock support to ensure uninterrupted service, smooth
           operations without delays.
         </p>
@@ -238,117 +245,110 @@
     </div>
   </section>
 
+
   <!-- Blogs Section -->
-  <section class="blog-section" id="blogs">
-    <h2>Latest from Our Blog</h2>
-    <br />
-    <p class="subtitle">
+  <section class="blog-section" id="navBlogs">
+    <h2 id="blogTitle">Latest from Our Blog</h2>
+    <p class="subtitle" id="blogSubtitle">
       Stay updated with the latest insights, tips, and innovations in concrete
       admixtures, emulsions, and cleaning solutions.
     </p>
-    <br /><br />
 
     <div class="top-bar">
-      <input type="text" placeholder="Search blog posts..." />
+      <input type="text" id="blogSearch" placeholder="Search blog posts..." />
       <div class="filters">
-        <button class="active" data-category="all">All</button>
-        <button data-category="admixtures">Concrete Admixtures</button>
-        <button data-category="emulsions">Emulsions</button>
-        <button data-category="cleaning">Cleaning Solutions</button>
+        <button class="active" data-category="all" id="filterAll">All</button>
+        <button data-category="admixtures" id="filterAdmixtures">Concrete Admixtures</button>
+        <button data-category="emulsions" id="filterEmulsions">Emulsions</button>
+        <button data-category="cleaning" id="filterCleaning">Cleaning Solutions</button>
       </div>
-
     </div>
-
 
     <div class="featured-blog">
       <img src="./Website/Assets/blogs-1-img.jpg" alt="Modern Concrete Building" class="bg-img" />
-      <div class="overlay">
-        <h2>
+      <div class="overlay-two">
+        <h2 id="featuredBlogTitle">
           How Superplasticizers Revolutionize<br />High-Strength Concrete
         </h2>
-        <p>
-          Discover how our advanced superplasticizers enhance concrete
-          durability<br />
-          and workability in large-scale projects.
+        <p id="featuredBlogDesc">
+          Discover how our advanced superplasticizers enhance concrete<br />
+          durability and workability in large-scale projects.
         </p>
-        <button>Read More →</button>
+        <button id="featuredBlogBtn">Read More →</button>
       </div>
     </div>
+
     <div class="blog-grid">
       <div class="blog-card admixtures">
         <img src="./Website/Assets/blogs-img-2.avif" alt="Blog 1" />
-        <h4>Top 5 Admixtures for Cold Weather Concrete</h4>
-        <button>Read More →</button>
+        <h4 id="blogCardTitle1">Top 5 Admixtures for Cold Weather Concrete</h4>
+        <button id="blogCardBtn1">Read More →</button>
       </div>
 
       <div class="blog-card cleaning">
         <img src="./Website/Assets/blogs-img-3.png" alt="Blog 2" />
-        <h4>Eco-Friendly Cleaning Solutions for Industrial Equipment</h4>
-        <button>Read More →</button>
+        <h4 id="blogCardTitle2">Eco-Friendly Cleaning Solutions for Industrial Equipment</h4>
+        <button id="blogCardBtn2">Read More →</button>
       </div>
 
       <div class="blog-card emulsions">
         <img src="./Website/Assets/blogs-img-4.jpg" alt="Blog 3" />
-        <h4>How to Apply Emulsions for Waterproofing Walls</h4>
-        <button>Read More →</button>
+        <h4 id="blogCardTitle3">How to Apply Emulsions for Waterproofing Walls</h4>
+        <button id="blogCardBtn3">Read More →</button>
       </div>
-
-
     </div>
-    </div>
-
-
   </section>
 
   <!-- Contact Section -->
-  <div class="container" id="contact">
+  <!-- Contact Section with IDs for Translation -->
+  <div class="container" id="navContact">
     <div class="header">
-      <h1>Contact Us</h1>
-      <p>Get in touch for technical support and product inquiries</p>
+      <h1 id="contactHeading">Contact Us</h1>
+      <p id="contactSubheading">Get in touch for technical support and product inquiries</p>
     </div>
 
     <div class="content">
       <div class="contact-info">
-        <h2>Get In Touch</h2>
+        <h2 id="getInTouch">Get In Touch</h2>
 
         <div class="info-item">
-          <h3><i class="fa-solid fa-location-dot"></i> Address</h3>
-          <p>
-            503, Srinivasa Road, A.C. Quarters,<br />
-            Opp. Moti Dungri, Tal - Deg, Bagh,<br />
-            Nashik, India
+          <h3 id="addressHeading"><i class="fa-solid fa-location-dot"></i> Address</h3>
+          <p id="addressText">
+            206, Katol-Warud Road,<br />
+            At-Indarwada, Post-Bharsingi,<br />
+            Nagpur-441305, (MH) INDIA.
           </p>
-        </div><br/>
+        </div><br />
 
         <div class="info-item">
-          <h3><i class="fa-regular fa-envelope"></i> Email</h3>
-          <p>sales.vasantindustries@gmail.com</p>
-        </div><br/>
-
-
-        <div class="info-item">
-          <h3><i class="fa-solid fa-phone"></i> Phone</h3>
-          <p>+91 020 2722 803</p>
-        </div><br/>
-
+          <h3 id="emailHeading"><i class="fa-regular fa-envelope"></i> Email</h3>
+          <p id="emailText">sales.vasantindustries@gmail.com</p>
+        </div><br />
 
         <div class="info-item">
-          <h3><i class="fa-solid fa-clock"></i> Business Hours</h3>
-          <p>Mon - Sun: 9:00 AM - 6:00 PM</p>
+          <h3 id="phoneHeading"><i class="fa-solid fa-phone"></i> Phone</h3>
+          <p id="phoneText">+91 942 3727 831</p>
+        </div><br />
+
+        <div class="info-item">
+          <h3 id="hoursHeading"><i class="fa-solid fa-clock"></i> Business Hours</h3>
+          <p id="hoursText">Mon - Sun: 9:00 AM - 6:00 PM</p>
         </div>
       </div>
 
       <div class="map">
-           <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4830.967331290176!2d78.45601259051733!3d21.354312053944547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd44f56283d7677%3A0x9ce9131be41a7b72!2sVASANT%20INDUSTRIES!5e0!3m2!1sen!2sin!4v1752747539449!5m2!1sen!2sin" width="750" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4830.967331290176!2d78.45601259051733!3d21.354312053944547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd44f56283d7677%3A0x9ce9131be41a7b72!2sVASANT%20INDUSTRIES!5e0!3m2!1sen!2sin!4v1752747539449!5m2!1sen!2sin"
+          width="750" height="500" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
-  </div>
+    </div>
 
-   <div class="footer">
+    <div class="footer">
       <div class="footer-content">
         <div class="footer-section">
-          <h3>Vasant Industries</h3>
-          <p style="font-size: 0.9rem; opacity: 0.8; line-height: 1.4">
+          <h3 id="footerCompanyName">Vasant Industries</h3>
+          <p id="footerCompanyDesc" style="font-size: 0.9rem; opacity: 0.8; line-height: 1.4">
             Leading industry provider of innovative admixtures and
             construction solutions. Committed to innovation, quality, and
             customer satisfaction.
@@ -356,56 +356,68 @@
         </div>
 
         <div class="footer-section">
-          <h3>Products</h3>
+          <h3 id="footerProducts">Products</h3>
           <ul>
-            <li><a href="#">Admixtures</a></li>
-            <li><a href="#">Water Reducers</a></li>
-            <li><a href="#">HRWR</a></li>
-            <li><a href="#">Retarders</a></li>
+            <li><a href="#" id="footerProduct1">Admixtures</a></li>
+            <li><a href="#" id="footerProduct2">Water Reducers</a></li>
+            <li><a href="#" id="footerProduct3">HRWR</a></li>
+            <li><a href="#" id="footerProduct4">Retarders</a></li>
           </ul>
         </div>
 
         <div class="footer-section">
-          <h3>Services</h3>
+          <h3 id="footerServices">Services</h3>
           <ul>
-            <li><a href="#">Technical Support</a></li>
-            <li><a href="#">Testing Services</a></li>
-            <li><a href="#">Calculations</a></li>
-            <li><a href="#">Consultation</a></li>
+            <li><a href="#" id="footerService1">Technical Support</a></li>
+            <li><a href="#" id="footerService2">Testing Services</a></li>
+            <li><a href="#" id="footerService3">Calculations</a></li>
+            <li><a href="#" id="footerService4">Consultation</a></li>
           </ul>
         </div>
 
         <div class="footer-section">
-          <h3>Applications</h3>
+          <h3 id="footerApplications">Applications</h3>
           <ul>
-            <li><a href="#">Ready Mix</a></li>
-            <li><a href="#">Precast</a></li>
-            <li><a href="#">High Performance</a></li>
-            <li><a href="#">Specialty Concrete</a></li>
+            <li><a href="#" id="footerApp1">Ready Mix</a></li>
+            <li><a href="#" id="footerApp2">Precast</a></li>
+            <li><a href="#" id="footerApp3">High Performance</a></li>
+            <li><a href="#" id="footerApp4">Specialty Concrete</a></li>
           </ul>
         </div>
 
         <div class="footer-section">
-          <h3>Company</h3>
+          <h3 id="footerCompany">Company</h3>
           <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Quality Policy</a></li>
-            <li><a href="#">Careers</a></li>
+            <li><a href="#" id="footerAbout">About Us</a></li>
+            <li><a href="#" id="footerContact">Contact</a></li>
+            <li><a href="#" id="footerPolicy">Quality Policy</a></li>
+            <li><a href="#" id="footerCareers">Careers</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>
-          © 2024 Vasant Industries. All rights reserved. 
+        <p id="footerCopyright">
+          © 2024 Vasant Industries. All rights reserved.
         </p>
       </div>
     </div>
+  </div>
 
+
+  <script src="./Website/Eng-trans.js"></script>
+  <script src="./Website/Mar-trans.js"></script>
+  <script src="./Website/Hindi-trans.js"></script>
   <!-- Script -->
   <!-- Script for corousel card -->
+
   <script>
+    // Menu Button
+    const menuBtn = document.getElementById("menuBtn");
+    menuBtn.addEventListener("click", () => {
+      menuBtn.classList.toggle("active");
+    });
+    // 
     window.addEventListener("scroll", () => {
       const header = document.querySelector("header");
       if (window.scrollY > 50) {
@@ -459,6 +471,174 @@
         });
       });
     });
+
+
+
+    // *************************** Translation *************************** //
+    const translate = {
+      english: englishData,
+      hindi: hindiData,
+      marathi: marathiData
+
+    };
+    function translateLanguage() {
+      const selectLanguage =
+        document.getElementById("select-lang").value;
+      let result = translate[selectLanguage];
+      // HEADER SECTION //
+      document.getElementById("logoName").textContent = result.logoName;
+      document.getElementById("nav_Home").textContent = result.nav_Home;
+      document.getElementById("nav_Products").textContent = result.nav_Products;
+      document.getElementById("nav_RnD").textContent = result.nav_RnD;
+      document.getElementById("nav_Features").textContent = result.nav_Features;
+      document.getElementById("nav_Blogs").textContent = result.nav_Blogs;
+      document.getElementById("nav_Contact").textContent = result.nav_Contact;
+
+
+      // COROUSEL SECTION //
+
+      // Slide 1
+      document.getElementById("slide1Title").textContent = result.slide1Title;
+      document.getElementById("slide1Title2").textContent = result.slide1Title2;
+      document.getElementById("slide1Desc").textContent = result.slide1Desc;
+      document.getElementById("slide1Btn1").textContent = result.slide1Btn1;
+      document.getElementById("slide1Btn2").textContent = result.slide1Btn2;
+
+
+      // Slide 2
+      document.getElementById("slide2Title").textContent = result.slide2Title;
+      document.getElementById("slide2Title2").textContent = result.slide2Title2;
+      document.getElementById("slide2Desc").textContent = result.slide2Desc;
+      document.getElementById("slide2Btn1").textContent = result.slide2Btn1;
+      document.getElementById("slide2Btn2").textContent = result.slide2Btn2;
+
+      // Slide 3
+      document.getElementById("slide3Title").textContent = result.slide3Title;
+      document.getElementById("slide3Title2").textContent = result.slide3Title2;
+      document.getElementById("slide3Desc").textContent = result.slide3Desc;
+      document.getElementById("slide3Btn1").textContent = result.slide3Btn1;
+      document.getElementById("slide3Btn2").textContent = result.slide3Btn2;
+
+      // PRODUCT SECTION //
+
+      document.getElementById("products_title").textContent = result.products_title;
+      document.getElementById("products_desc").textContent = result.products_desc;
+      document.getElementById("admixture_title").textContent = result.admixture_title;
+      document.getElementById("admixture_desc").textContent = result.admixture_desc;
+      document.getElementById("admixture_btn").textContent = result.admixture_btn;
+      document.getElementById("emulsion_title").textContent = result.emulsion_title;
+      document.getElementById("emulsion_desc").textContent = result.emulsion_desc;
+      document.getElementById("emulsion_btn").textContent = result.emulsion_btn;
+      document.getElementById("cleaning_title").textContent = result.cleaning_title;
+      document.getElementById("cleaning_desc").textContent = result.cleaning_desc;
+      document.getElementById("cleaning_btn").textContent = result.cleaning_btn;
+
+
+
+      // RESEARCH AND DEVELOPMENT SECTION //
+
+      document.getElementById("rd_title").textContent = result.rd_title;
+      document.getElementById("rd_subtitle").textContent = result.rd_subtitle;
+      document.getElementById("rd_description").textContent = result.rd_description;
+      document.getElementById("rd_learnmore").textContent = result.rd_learnmore;
+
+      // FEATURE SECTION //
+
+      document.getElementById("features_main_title").textContent = result.features_main_title;
+      document.getElementById("features_subtitle").textContent = result.features_subtitle;
+      document.getElementById("features_title").textContent = result.features_title;
+      document.getElementById("feature1title").textContent = result.feature1title;
+      document.getElementById("feature1Desc").textContent = result.feature1Desc;
+      document.getElementById("feature2title").textContent = result.feature2title;
+      document.getElementById("feature2Desc").textContent = result.feature2Desc;
+      document.getElementById("feature3title").textContent = result.feature3title;
+      document.getElementById("feature3Desc").textContent = result.feature3Desc;
+      document.getElementById("feature4title").textContent = result.feature4title;
+      document.getElementById("feature4Desc").textContent = result.feature4Desc;
+      document.getElementById("feature5title").textContent = result.feature5title;
+      document.getElementById("feature5Desc").textContent = result.feature5Desc;
+      document.getElementById("feature6title").textContent = result.feature6title;
+      document.getElementById("feature6Desc").textContent = result.feature6Desc;
+
+      // BLOGS SECTION //
+
+      document.getElementById("blogTitle").textContent = result.blogTitle;
+      document.getElementById("blogSubtitle").textContent = result.blogSubtitle;
+      document.getElementById("blogSearch").textContent = result.blogSearch;
+
+      // FILTER BUTTON
+      document.getElementById("filterAll").textContent = result.filterAll;
+      document.getElementById("filterAdmixtures").textContent = result.filterAdmixtures;
+      document.getElementById("filterEmulsions").textContent = result.filterEmulsions;
+      document.getElementById("filterCleaning").textContent = result.filterCleaning;
+
+      // FEATURE BLOGS
+      document.getElementById("featuredBlogTitle").textContent = result.featuredBlogTitle;
+      document.getElementById("featuredBlogDesc").textContent = result.featuredBlogDesc;
+      document.getElementById("featuredBlogBtn").textContent = result.featuredBlogBtn;
+
+      // BLOG CARD
+      document.getElementById("blogCardTitle1").textContent = result.blogCardTitle1;
+      document.getElementById("blogCardBtn1").textContent = result.blogCardBtn1;
+
+      document.getElementById("blogCardTitle2").textContent = result.blogCardTitle2;
+      document.getElementById("blogCardBtn2").textContent = result.blogCardBtn2;
+
+      document.getElementById("blogCardTitle3").textContent = result.blogCardTitle3;
+      document.getElementById("blogCardBtn3").textContent = result.blogCardBtn3;
+
+
+      // CONTACT SECTION //
+
+      // CONTACT HEADER
+      document.getElementById("contactHeading").textContent = result.contactHeading;
+      document.getElementById("contactSubheading").textContent = result.contactSubheading;
+      document.getElementById("getInTouch").textContent = result.getInTouch;
+
+      // CONTACT INFO
+      document.getElementById("addressHeading").textContent = result.addressHeading;
+      document.getElementById("addressText").innerHTML = result.addressText.replace(/\n/g, "<br>");
+
+      document.getElementById("emailHeading").textContent = result.emailHeading;
+      document.getElementById("emailText").textContent = result.emailText;
+
+      document.getElementById("phoneHeading").textContent = result.phoneHeading;
+      document.getElementById("phoneText").textContent = result.phoneText;
+
+      document.getElementById("hoursHeading").textContent = result.hoursHeading;
+      document.getElementById("hoursText").textContent = result.hoursText;
+
+      // FOOTER
+      document.getElementById("footerCompanyName").textContent = result.footerCompanyName;
+      document.getElementById("footerCompanyDesc").textContent = result.footerCompanyDesc;
+
+      document.getElementById("footerProducts").textContent = result.footerProducts;
+      document.getElementById("footerProduct1").textContent = result.footerProduct1;
+      document.getElementById("footerProduct2").textContent = result.footerProduct2;
+      document.getElementById("footerProduct3").textContent = result.footerProduct3;
+      document.getElementById("footerProduct4").textContent = result.footerProduct4;
+
+      document.getElementById("footerServices").textContent = result.footerServices;
+      document.getElementById("footerService1").textContent = result.footerService1;
+      document.getElementById("footerService2").textContent = result.footerService2;
+      document.getElementById("footerService3").textContent = result.footerService3;
+      document.getElementById("footerService4").textContent = result.footerService4;
+
+      document.getElementById("footerApplications").textContent = result.footerApplications;
+      document.getElementById("footerApp1").textContent = result.footerApp1;
+      document.getElementById("footerApp2").textContent = result.footerApp2;
+      document.getElementById("footerApp3").textContent = result.footerApp3;
+      document.getElementById("footerApp4").textContent = result.footerApp4;
+
+      document.getElementById("footerCompany").textContent = result.footerCompany;
+      document.getElementById("footerAbout").textContent = result.footerAbout;
+      document.getElementById("footerContact").textContent = result.footerContact;
+      document.getElementById("footerPolicy").textContent = result.footerPolicy;
+      document.getElementById("footerCareers").textContent = result.footerCareers;
+
+      document.getElementById("footerCopyright").textContent = result.footerCopyright;
+
+    }
   </script>
 
 
