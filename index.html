@@ -22,8 +22,11 @@
       <img src="./Website/Assets/vasant-logo-removebg-preview.png" alt="Vasant Logo" />
       <span id="logoName">Vasant Industries</span>
     </div>
-
-    <nav>
+    <!-- Hamburger Menu Button (Mobile Only) -->
+    <div class="menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav class="nav-links">
       <a href="./index.html#navHome" id="nav_Home">Home</a>
       <a href="./index.html#navProducts" id="nav_Products">Products</a>
       <a href="./index.html#navRnD" id="nav_RnD">R&D</a>
@@ -39,11 +42,11 @@
     </select>
 
     <!-- Menu Button -->
-    <div class="menu-btn" id="menuBtn">
+    <!-- <div class="menu-btn" id="menuBtn">
       <div class="bar"></div>
       <div class="bar"></div>
       <div class="bar"></div>
-    </div>
+    </div> -->
 
   </header>
 
@@ -409,15 +412,23 @@
   <script src="./Website/Mar-trans.js"></script>
   <script src="./Website/Hindi-trans.js"></script>
   <!-- Script -->
-  <!-- Script for corousel card -->
+
 
   <script>
-    // Menu Button
-    const menuBtn = document.getElementById("menuBtn");
+    // Script for Menu Button //
+
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelector(".nav-links");
+
     menuBtn.addEventListener("click", () => {
-      menuBtn.classList.toggle("active");
+      navLinks.classList.toggle("show");
+
+      // Toggle hamburger ↔ close icon
+      menuBtn.innerHTML = navLinks.classList.contains("show")
+        ? '<i class="fas fa-times"></i>'
+        : '<i class="fas fa-bars"></i>';
     });
-    // 
+    // Script for corousel card //
     window.addEventListener("scroll", () => {
       const header = document.querySelector("header");
       if (window.scrollY > 50) {
