@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research and Development</title>
+  <!-- External CSS Link -->
+  <link rel="stylesheet" href="../../Assets/CSS/research&dev.css" />
+  <!-- Icon (Used Font Awesome CSS) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+  <!-- R&D Section with IDs for Translation -->
+  <header>
+    <div class="logo" id="logoText">
+      <img src="../../Assets/imgs/vasant-logo-removebg-preview.png" alt="Vasant Logo" />
+      <span id="logoName">Vasant Industries</span>
+    </div>
+    <!-- Hamburger Menu Button (Mobile Only) -->
+    <div class="menu-btn">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav class="nav-links">
+      <a href="./index.html#navHome" id="nav_Home">Home</a>
+      <a href="./index.html#navProducts" id="nav_Products">Products</a>
+      <a href="./index.html#navRnD" id="nav_RnD">R&D</a>
+      <a href="./index.html#navFeatures" id="nav_Features">Features</a>
+      <a href="./index.html#navBlogs" id="nav_Blogs">Blogs</a>
+      <a href="./index.html#navContact" id="nav_Contact">Contact</a>
+    </nav>
+    <select name="language" id="select-lang" onchange="translateLanguage()">
+      <option value="english">English</option>
+      <option value="hindi">हिंदी</option>
+      <option value="marathi">मराठी</option>
+    </select>
+  </header>
+
+  <section class="rd-section">
+    <h2 id="rdMainHeading">Research and Development</h2>
+    <p class="subtitle" id="rdSubTitle">
+      Learn about our research and development efforts across various product
+      categories.
+    </p>
+
+    <div class="rd-grid">
+      <!-- Concrete Admixture -->
+      <div class="rd-item">
+        <img src="../../Assets/imgs/concrete-admixture-500x500.webp" alt="Concrete Admixture" />
+        <div class="rd-text">
+          <h3 id="rdAdmixtureTitle">Concrete Admixture</h3>
+          <p id="rdAdmixtureDesc">
+            Our research focuses on developing innovative admixtures that
+            enhance the strength, durability, and workability of concrete. We
+            design solutions like accelerators, retarders, and water reducers
+            tailored for modern construction. Each formulation is tested under
+            strict lab and field conditions for performance and reliability.
+            We also prioritize eco-friendly admixtures to support sustainable
+            and green building practices.
+          </p>
+        </div>
+      </div>
+
+      <!-- Emulsion -->
+      <div class="rd-item">
+        <div class="rd-text">
+          <h3 id="rdEmulsionTitle">Emulsion</h3>
+          <p id="rdEmulsionDesc">
+            Our R&D team continually innovates to develop custom emulsions
+            tailored to unique needs—whether for waterproof coatings, bonding
+            agents, or sealing compounds. We focus on creating
+            high-performance, polymer-based emulsions that offer excellent
+            adhesion, flexibility, and durability. Every formulation is tested
+            for environmental safety and long-lasting effectiveness.
+            Sustainable chemistry drives our mission to deliver reliable and
+            eco-friendly solutions.
+          </p>
+        </div>
+        <img src="../../Assets/imgs/emulsion.jpg" alt="Emulsion" />
+      </div>
+
+      <!-- Cleaning Solutions -->
+      <div class="rd-item">
+        <img src="../../Assets/imgs/cleaning-sol-img.webp" alt="Cleaning Solutions" />
+        <div class="rd-text">
+          <h3 id="rdCleaningTitle">Cleaning Solutions</h3>
+          <p id="rdCleaningDesc">
+            Our R&D is dedicated to formulating effective and environmentally
+            friendly cleaning solutions. We develop industrial-grade cleaners
+            that efficiently remove concrete residue, oil, grease, and stains
+            without damaging surfaces. Each product is tested for safety,
+            biodegradability, and performance. Our goal is to deliver powerful
+            cleaning with minimal environmental impact.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="../Website/Hindi-trans.js"></script>
+  <script src="../Website/Mar-trans.js"></script>
+  <script src="../Website/Eng-trans.js"></script>
+  <script>
+    // Script for Menu Button //
+
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+
+      // Toggle hamburger ↔ close icon
+      menuBtn.innerHTML = navLinks.classList.contains("show")
+        ? '<i class="fas fa-times"></i>'
+        : '<i class="fas fa-bars"></i>';
+    });
+    // *************************** Translation *************************** //
+    const translate = {
+      english: englishData,
+      hindi: hindiData,
+      marathi: marathiData,
+    };
+    function translateLanguage() {
+      const selectLanguage = document.getElementById("select-lang").value;
+      let result = translate[selectLanguage];
+      // HEADER SECTION //
+      document.getElementById("logoName").textContent = result.logoName;
+      document.getElementById("nav_Home").textContent = result.nav_Home;
+      document.getElementById("nav_Products").textContent =
+        result.nav_Products;
+      document.getElementById("nav_RnD").textContent = result.nav_RnD;
+      document.getElementById("nav_Features").textContent =
+        result.nav_Features;
+      document.getElementById("nav_Blogs").textContent = result.nav_Blogs;
+      document.getElementById("nav_Contact").textContent = result.nav_Contact;
+
+      // RESEARCH AND DEVELOPMENT SECTION
+
+      document.getElementById("rdMainHeading").textContent =
+        result.rdMainHeading;
+      document.getElementById("rdSubTitle").textContent = result.rdSubTitle;
+      document.getElementById("rdAdmixtureTitle").textContent =
+        result.rdAdmixtureTitle;
+      document.getElementById("rdAdmixtureDesc").textContent =
+        result.rdAdmixtureDesc;
+      document.getElementById("rdEmulsionTitle").textContent =
+        result.rdEmulsionTitle;
+      document.getElementById("rdEmulsionDesc").textContent =
+        result.rdEmulsionDesc;
+      document.getElementById("rdCleaningTitle").textContent =
+        result.rdCleaningTitle;
+      document.getElementById("rdCleaningDesc").textContent =
+        result.rdCleaningDesc;
+    }
+  </script>
+</body>
+
+</html>
