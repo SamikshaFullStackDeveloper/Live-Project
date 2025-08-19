@@ -79,100 +79,97 @@ nav a:hover {
   color: #ffcb47;
 }
 
+/* Menu Button (hidden on desktop) */
+.menu-btn {
+  display: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+}
 
-    /* Menu Button (hidden on desktop) */
-    .menu-btn {
-      display: none;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-    }
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 90px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.9);
+    flex-direction: column;
+    width: 200px;
+    text-align: left;
+    padding: 20px;
+    display: none;
+  }
 
-    /* Responsive Navbar */
-    @media (max-width: 768px) {
-    
-     .nav-links {
-          position: absolute;
-          top: 90px; 
-          right: 0;
-          background: rgba(255, 255, 255, 0.9);
-          flex-direction: column;
-          width:200px; 
-          text-align: left;
-          padding: 20px;
-          display: none; 
-        }
+  .nav-links.show {
+    display: flex;
+  }
 
-        .nav-links.show {
-          display: flex;
-        }
+  .nav-links a {
+    padding: 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
 
-        .nav-links a {
-          padding: 10px 0;
-          font-size: 16px;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
+  .menu-btn {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    margin: 0;
+    color: #0b398b;
+  }
 
-        .menu-btn {
-          display: block;
-          position: absolute;
-          right: 20px; 
-          top: 20px;
-          margin: 0;
-        color: #0b398b;
-        }
+  .brand-top {
+    font-size: 1.5rem;
+    left: 15px;
+  }
+}
+/* Responsive Navbar for 480px */
+@media (max-width: 480px) {
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.9);
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+    padding: 15px;
+    display: none;
+  }
 
-        .brand-top {
-          font-size: 1.5rem; 
-          left: 15px;
-        }
-    }
- /* Responsive Navbar for 480px */
-      @media (max-width: 480px) {
-        .nav-links {
-          position: absolute;
-          top: 70px; 
-          right: 0;
-          background: rgba(255, 255, 255, 0.9);
-          flex-direction: column;
-          width: 100%; 
-          text-align: left;
-          padding: 15px;
-          display: none;
-        }
+  .nav-links.show {
+    display: flex;
+  }
 
-        .nav-links.show {
-          display: flex;
-        }
+  .nav-links a {
+    padding: 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
 
-        .nav-links a {
-          padding: 10px 0;
-          font-size: 16px;
-          border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
+  .menu-btn {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    margin: 0;
+    color: #0b398b;
+  }
 
-        .menu-btn {
-          display: block;
-          position: absolute;
-          right: 20px;
-          top: 20px;
-          margin: 0;
-        color: #0b398b;
-        }
-
-        .brand-top {
-          font-size: 1.5rem; 
-          left: 15px;
-        }
-      }
-
+  .brand-top {
+    font-size: 1.5rem;
+    left: 15px;
+  }
+}
 
 #select-lang {
   padding: 10px 15px;
   font-size: 16px;
   font-family: "Segoe UI", sans-serif;
   color: #ffffff;
-  background-color: #1e3a8a; 
+  background-color: #1e3a8a;
   border: 2px solid #1e40af;
   border-radius: 8px;
   outline: none;
@@ -394,12 +391,10 @@ nav a:hover {
   .buttons {
     flex-direction: row;
     gap: 1rem;
-      padding: 0.6rem 1rem;
+    padding: 0.6rem 1rem;
     text-align: center;
-   min-width: 140px; 
+    min-width: 140px;
   }
-
-  
 }
 
 /* Small Mobile Devices (width ≤ 480px) */
@@ -439,14 +434,13 @@ nav a:hover {
   .carousel-content p {
     font-size: 0.95rem;
   }
-.buttons {
+  .buttons {
     flex-direction: row;
     gap: 1rem;
-      padding: 0.6rem 1rem;
+    padding: 0.6rem 1rem;
     text-align: center;
-   min-width: 140px; 
+    min-width: 140px;
   }
-
 }
 
 /* Product Section */
@@ -1355,6 +1349,17 @@ nav a:hover {
   opacity: 0.9;
   line-height: 1.4;
   font-size: 15px;
+}
+.contact-link a{
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.contact-link:hover a{
+  color: #00bfff;
+  text-shadow: 0 0 8px rgba(0, 191, 255, 0.8);
 }
 
 .map {
